@@ -4,6 +4,7 @@ const {
   customers,
   revenue,
   users,
+  elections,
 } = require('../app/lib/placeholder-data.js');
 const bcrypt = require('bcrypt');
 
@@ -160,6 +161,50 @@ async function seedRevenue(client) {
   }
 }
 
+async function seedElections(client) {
+  try {
+    await client.sql`CREATE EXTENSION IF NOT EXISTS "uuid-ossp"`;
+
+    // Create the "customers" table if it doesn't exist
+    const createTable = await client.sql`
+      CREATE TABLE IF NOT EXISTS elections (
+        id UUID DEFAULT uuid_generate_v4() PRIMARY KEY,
+        candidate_counter INT NOT NULL,
+        ward_name VARCHAR(255) NOT NULL,
+        election_counter INT NOT NULL,
+        candidate_party VARCHAR(255) NOT NULL,
+        candidate_group VARCHAR(255) NOT NULL,
+        candidate_votes INT NOT NULL,
+      );
+    `;
+
+    console.log(`Created "elections" table`);
+
+    // Insert data into the "elections" table
+ 
+    const insertedElections = await Promise.all(
+      customers.map(
+        (elections) => client.sql`
+        INSERT INTO customers (id, candidate_counter, ward_name, image_url, election_counter, candidate_party, candidate_group, candidate_votes)
+        VALUES (${elections.CandidateCounter}, ${elections.WardName}, ${elections.ElectionCounter}, ${elections.CandidateParty}, ${elections.CandidateGroup}, ${elections.CandidateVote})
+        ON CONFLICT (id) DO NOTHING;
+      `,
+      ),
+    );
+
+    console.log(`Seeded ${insertedElections.length} cust`);
+
+    return {
+      createTable,
+      customers: insertedElections,
+    };
+  } catch (error) {
+    console.error('Error seeding elections:', error);
+    throw error;
+  }
+}
+
+
 async function main() {
   const client = await db.connect();
 
@@ -167,6 +212,7 @@ async function main() {
   await seedCustomers(client);
   await seedInvoices(client);
   await seedRevenue(client);
+  await seedElections(client);
 
   await client.end();
 }

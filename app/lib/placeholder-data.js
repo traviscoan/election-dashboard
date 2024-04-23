@@ -180,9 +180,125 @@ const revenue = [
   { month: 'Dec', revenue: 4800 },
 ];
 
+const elections = [
+  {
+    CandidateCounter:1,
+    WardName:"PAULTON",
+    ElectionCounter:129,
+    CandidateParty:"LD",
+    CandidateGroup:"LD",
+    CandidateVote:1050
+  },
+  {
+    CandidateCounter:2,
+    WardName:"PAULTON",
+    ElectionCounter:129,
+    CandidateParty:"CON",
+    CandidateGroup:"CON",
+    CandidateVote:513
+  },
+  {
+    CandidateCounter:3,
+    WardName:"PAULTON",
+    ElectionCounter:129,
+    CandidateParty:"LAB",
+    CandidateGroup:"LAB",
+    CandidateVote:134
+  },
+  {
+    CandidateCounter:4,
+    WardName:"PATCHWAY STOKE LODGE",
+    ElectionCounter:16,
+    CandidateParty:"LAB",
+    CandidateGroup:"LAB",
+    CandidateVote:1087
+  },
+  {
+    CandidateCounter:5,
+    WardName:"PATCHWAY STOKE LODGE",
+    ElectionCounter:16,
+    CandidateParty:"CON",
+    CandidateGroup:"CON",
+    CandidateVote:790
+  },
+  {
+    CandidateCounter:6,
+    WardName:"PATCHWAY STOKE LODGE",
+    ElectionCounter:16,
+    CandidateParty:"LD",
+    CandidateGroup:"LD",
+    CandidateVote:151
+  },
+  {
+    CandidateCounter:7,
+    WardName:"STOKE GIFFORD SOUTH",
+    ElectionCounter:27,
+    CandidateParty:"CON",
+    CandidateGroup:"CON",
+    CandidateVote:686
+  },
+  {
+    CandidateCounter:8,
+    WardName:"STOKE GIFFORD SOUTH",
+    ElectionCounter:27,
+    CandidateParty:"LAB",
+    CandidateGroup:"LAB",
+    CandidateVote:375
+  },
+  {
+    CandidateCounter:9,
+    WardName:"STOKE GIFFORD SOUTH",
+    ElectionCounter:27,
+    CandidateParty:"LD",
+    CandidateGroup:"LD",
+    CandidateVote:108
+  },
+  {
+    CandidateCounter:10,
+    WardName:"HINTON CHARTERHOUSE",
+    ElectionCounter:84,
+    CandidateParty:"LAB",
+    CandidateGroup:"LAB",
+    CandidateVote:702
+  },
+  {
+    CandidateCounter:11,
+    WardName:"HINTON CHARTERHOUSE",
+    ElectionCounter:84,
+    CandidateParty:"CON",
+    CandidateGroup:"CON",
+    CandidateVote:564
+  },
+  {
+    CandidateCounter:12,
+    WardName:"HINTON CHARTERHOUSE",
+    ElectionCounter:84,
+    CandidateParty:"IND LAB",
+    CandidateGroup:"OTH",
+    CandidateVote:129
+  },
+  {
+    CandidateCounter:13,
+    WardName:"HINTON CHARTERHOUSE",
+    ElectionCounter:84,
+    CandidateParty:"LIB",
+    CandidateGroup:"OTH",
+    CandidateVote:93
+  },
+  {
+    CandidateCounter:14,
+    WardName:"HINTON CHARTERHOUSE",
+    ElectionCounter:84,
+    CandidateParty:"LD",
+    CandidateGroup:"LD",
+    CandidateVote:12
+  }
+];
+
 module.exports = {
   users,
   customers,
   invoices,
   revenue,
+  elections,
 };
